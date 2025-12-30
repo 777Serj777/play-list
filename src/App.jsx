@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import MusicTile from './component/musicTile/MusicTile'
 import styled, { createGlobalStyle } from "styled-components";
 import React from "react";
