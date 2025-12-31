@@ -8,8 +8,8 @@ const StyleBtnNext = styled.button`
     position: relative;
     align-items: center; 
     justify-content: center;
-    width: 9.8rem;
-    height: 9.8rem;
+    width: 4.8rem;
+    height: 4.8rem;
     cursor: pointer;
     background: transparent;
     background-image: url(${NextIcon});
@@ -22,6 +22,9 @@ const StyleBtnNext = styled.button`
     &:hover{
        filter: brightness(110%);
     }
+       &:active{
+       transform: scale(0.9);
+    }
 
 `;
 
@@ -33,8 +36,6 @@ export default function BtnNext (){
         <>  
             <StyleBtnNext 
                 
-                onMouseDown={e => e.currentTarget.style.transform = "scale(0.9)"} 
-                onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
             />  
         </>
     )

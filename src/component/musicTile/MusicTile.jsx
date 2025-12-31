@@ -1,7 +1,15 @@
 import BtnPlay from "./elements/BtnPlay"
 import BtnNext from "./elements/BtnNext"
 import BtnPrev from "./elements/BtnPrev"
+import styled from "styled-components"
 
+const StyleWrapPlay = styled.div`
+    
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+`
 
 
 export default function MusicTile(){
@@ -9,12 +17,12 @@ export default function MusicTile(){
 
     return (
         <>
-            <div>
-          
+            <StyleWrapPlay>        
                 <BtnPrev/>
-                <BtnNext/>
                 <BtnPlay/>
-            </div>
+                <BtnNext/>
+               
+            </StyleWrapPlay>
         
         </>
     )
