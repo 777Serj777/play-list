@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { useState } from 'react'
+import PlayIcon from '/Play_008.png'
+import StopIcon  from '/Stop_008.png'
 
 const StyleBtnPlay = styled.button`
     display: flex; 
@@ -9,7 +11,7 @@ const StyleBtnPlay = styled.button`
     width: 9.8rem;
     height: 9.8rem;
     cursor: pointer;
-    background-image: ${props => (props.$active ? `url("/Play_008.png")`: `url("/Stop_008.png")`)};
+    background-image: ${props => (props.$active ? `url(${PlayIcon})`: `url(${StopIcon})`)};
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -26,8 +28,6 @@ const StyleBtnPlay = styled.button`
 `;
 
 export default function BtnPlay (){
-
-
 
     const [activePlayer, setActivePlayer] = useState(false);
 
