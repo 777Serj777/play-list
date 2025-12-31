@@ -12,13 +12,10 @@ const StyleBtnPrev = styled.button`
     height: 4.8rem;
     cursor: pointer;
     background: transparent;
-    background-image: url(${PrevIcon});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url(${PrevIcon}) center/contain no-repeat;
     transition: all .3s ease;  
     border: none;
- 
+   
 
     &:hover{
        filter: brightness(110%);

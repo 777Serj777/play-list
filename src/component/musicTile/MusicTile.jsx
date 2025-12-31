@@ -1,6 +1,7 @@
 import BtnPlay from "./elements/BtnPlay"
 import BtnNext from "./elements/BtnNext"
 import BtnPrev from "./elements/BtnPrev"
+import ProgressBar from "./elements/ProgressBar"
 import styled from "styled-components"
 
 const StyleWrapPlay = styled.div`
@@ -20,9 +21,9 @@ export default function MusicTile(){
             <StyleWrapPlay>        
                 <BtnPrev/>
                 <BtnPlay/>
-                <BtnNext/>
-               
+                <BtnNext/>          
             </StyleWrapPlay>
+            <ProgressBar/>
         
         </>
     )

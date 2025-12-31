@@ -1,46 +1,104 @@
-import { useState } from "react";
+import { useState, useEffect   } from "react";
 import styled from "styled-components";
-import { useState } from 'react'
-const StyleProgressBar = styled.div`
-    width: 40rem;
-    height: 60rem;
-    background: #f18cc7;
-    border-radius: 1rem;
 
-`;
-const BtnPlay = styled.div`
-    display: flex; 
+
+const StyleProgressBar = styled.div.attrs(props => (
+    { 
+        style: { 
+          '--progress': props.$positionBtn + '%',
+        }, 
+    }))`
+    
     position: relative;
-    align-items: center; 
-    justify-content: center;
-    width: 9.8rem;
-    height: 9.8rem;
-    cursor: pointer;
-    background-image: url("/Play_008.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all .3s ease;  
-  
+    width: 50%;
+    height: .6rem;
+    background-color: black;
+    border-radius: 1rem;
+    margin: 0 auto;
 
-    &:hover{
-    width: 10rem;
-    height: 10rem;
-    filter: brightness(110%);
-
+    &::after{
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        left: var(--progress);
+        transform: translateY(-.45rem);
+        background-color: #A11282;
+        border-radius: 50%;
+        cursor: pointer;
     }
- 
 `;
+
+
 
 export default function ProgressBar (){
 
-    const [state, setState] = useState
+    const [state, setState] = useState(0)
+    const [dragging, setDragging] = useState(false)
+ 
+    const eventDownMouse = (e) => {
+
+      
+        setDragging(true)
+        const bar = document.querySelector("#bar") 
+        const rect = bar.getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const percent = Math.min(Math.max(x / rect.width, 0), 1) * 100
+        setState(percent - 1.5)
+   
+     
+        
+        
+    }
+
+
+
+
+  useEffect(() => {
+    const handleMouseUp = (e) => {
+        setDragging(false)
+    }
+    const handleMouseMove = (e) => 
+    { 
+       
+        
+        if(dragging){
+            const bar = document.querySelector("#bar") 
+            const rect = bar.getBoundingClientRect()
+            const x = e.clientX - rect.left
+            const percent = Math.min(Math.max(x / rect.width, 0), 1) * 100
+            setState(percent - 1.5)
+            console.log(percent)
+        }
+    } 
+     
+  
+     
+    window.addEventListener("mousemove", handleMouseMove) 
+    window.addEventListener("mouseup", handleMouseUp)
+ 
+
+    return () => {
+      window.removeEventListener("mouseup", handleMouseUp)
+      window.removeEventListener("mousemove", handleMouseMove)
+   
+    }
+  }, [dragging])
+
+ 
+
+
 
     return(
-        <>
-            <StyleProgressBar>
-                <BtnPlay/>
-            </StyleProgressBar>
+        <> 
+            < StyleProgressBar 
+                id="bar" 
+                $positionBtn = {state} 
+            
+                onMouseDown = {eventDownMouse} 
+             
+            />
         </>
     )
 }
