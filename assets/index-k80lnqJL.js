@@ -92,7 +92,7 @@ Error generating stack: `+a.message+`
         border-radius: 50%;
         cursor: pointer;
     }
-`;function y1(){const[c,r]=xe.useState(0),[o,s]=xe.useState(!1),v=E=>{s(!0);const q=document.querySelector("#bar").getBoundingClientRect(),D=E.clientX-q.left,b=Math.min(Math.max(D/q.width,0),1)*100;r(b-1.5)};return xe.useEffect(()=>{const E=q=>{s(!1)},U=q=>{if(o){const b=document.querySelector("#bar").getBoundingClientRect(),B=q.clientX-b.left,N=Math.min(Math.max(B/b.width,0),1)*100;r(N-1.5),console.log(N)}};return window.addEventListener("mousemove",U),window.addEventListener("mouseup",E),()=>{window.removeEventListener("mouseup",E),window.removeEventListener("mousemove",U)}},[o]),Ot.jsx(Ot.Fragment,{children:Ot.jsx(d1,{id:"bar",$positionBtn:c,onMouseDown:v})})}const h1=Pa.div`
+`;function y1(){const[c,r]=xe.useState(0),[o,s]=xe.useState(!1),v=E=>{s(!0);const q=document.querySelector("#bar").getBoundingClientRect(),D=E.clientX-q.left,b=Math.min(Math.max(D/q.width,0),1)*100;r(Math.round(b))};return xe.useEffect(()=>{const E=q=>{s(!1)},U=q=>{if(o){const b=document.querySelector("#bar").getBoundingClientRect(),B=q.clientX-b.left,N=Math.min(Math.max(B/b.width,0),1)*100;r(Math.round(N)),console.log(N)}};return window.addEventListener("mousemove",U),window.addEventListener("mouseup",E),()=>{window.removeEventListener("mouseup",E),window.removeEventListener("mousemove",U)}},[o]),Ot.jsx(Ot.Fragment,{children:Ot.jsx(d1,{id:"bar",$positionBtn:c,onMouseDown:v})})}const h1=Pa.div`
     
     display: flex;
     align-items: center;
