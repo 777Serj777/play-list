@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import PlayIcon from '/Play_008.png'
-import StopIcon  from '/Stop_008.png'
+import PrevIcon from '/Prev_009.png'
 
-const StyleBtnPlay = styled.button`
+
+const StyleBtnPrev = styled.button`
     display: flex; 
     position: relative;
     align-items: center; 
@@ -12,7 +12,7 @@ const StyleBtnPlay = styled.button`
     height: 9.8rem;
     cursor: pointer;
     background: transparent;
-    background-image: ${props => (props.$active ? `url(${PlayIcon})`: `url(${StopIcon})`)};
+    background-image: url(${PrevIcon});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -25,17 +25,14 @@ const StyleBtnPlay = styled.button`
 
 `;
 
-export default function BtnPlay (){
+export default function BtnPrev (){
 
-    const [activePlayer, setActivePlayer] = useState(false);
-
-    const clickPlayer =  () => activePlayer ? setActivePlayer(false) : setActivePlayer(true);
+   
 
     return(
         <>  
-            <StyleBtnPlay 
-                onClick = {clickPlayer} 
-                $active = {activePlayer} 
+            <StyleBtnPrev 
+                
                 onMouseDown={e => e.currentTarget.style.transform = "scale(0.9)"} 
                 onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
             />  

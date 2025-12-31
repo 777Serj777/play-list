@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from "react"
 import MusicTile from './component/musicTile/MusicTile'
 import styled, { createGlobalStyle } from "styled-components";
 import React from "react";
-
+import PlayIcon from '/Play_008.png'
+import StopIcon  from '/Stop_008.png'
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -31,6 +32,40 @@ const GlobalStyle = createGlobalStyle`
 
 
 
+//  function CanvasButton() {
+//   const canvasRef = useRef(null)
+//   const [active, setActive] = useState(false)
+
+//   useEffect(() => {
+//     const canvas = canvasRef.current
+//     if (!canvas) return
+//     const ctx = canvas.getContext("2d")
+
+//     const img = new Image()
+//     img.src = active ? PlayIcon : StopIcon
+//     img.onload = () => {
+//       ctx.clearRect(0, 0, canvas.width, canvas.height)
+//       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+//     }
+//   }, [active])
+
+//   return (
+//     <canvas
+//       ref={canvasRef}
+//       width={156}
+//       height={156}
+//       style={{ 
+//         cursor: "pointer", border: "none" ,
+//          transition: "transform 0.2s ease",
+//       }}
+//       onClick={() => setActive(!active)}
+//        onMouseDown={e => e.currentTarget.style.transform = "scale(0.9)"} onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
+//     />
+//   )
+// }
+
+
+
 
 
 
@@ -38,11 +73,11 @@ const GlobalStyle = createGlobalStyle`
 
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-     
+      
     <GlobalStyle/>
     <MusicTile/>
     </>
