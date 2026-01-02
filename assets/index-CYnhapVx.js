@@ -12,13 +12,13 @@ Error generating stack: `+a.message+`
     position: relative;
     align-items: center; 
     justify-content: center;
-    width:  5em;
-    height: 4.5em;
+    width:  4em;
+    height: 3em;
     margin: 0 2rem;
     cursor: pointer;
     background: transparent;
     background-image: ${i=>i.$active?`url(${a1})`:`url(${u1})`};
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transition: all .3s ease;  
@@ -35,8 +35,8 @@ Error generating stack: `+a.message+`
     position: relative;
     align-items: center; 
     justify-content: center;
-    width: 2.8rem;
-    height: 3.8rem;
+    width: 2rem;
+    height: 3rem;
     cursor: pointer;
     background: transparent;
     background: url(${c1}) center/contain no-repeat;
@@ -55,8 +55,8 @@ Error generating stack: `+a.message+`
     position: relative;
     align-items: center; 
     justify-content: center;
-    width: 2.8rem;
-    height: 3.8rem;
+    width: 2rem;
+    height: 3rem;
     cursor: pointer;
     background: transparent;
     background: url(${r1}) center/contain no-repeat;
@@ -72,22 +72,24 @@ Error generating stack: `+a.message+`
     }
 
 `;function d1(){return Mt.jsx(Mt.Fragment,{children:Mt.jsx(o1,{})})}const y1=ca.div.attrs(i=>({style:{"--progress":i.$positionBtn+"%"}}))`
-    
+
+
+    display: flex;
+    align-items: center;
     position: relative;
     width: 100%;
-    height: .4rem;
+    height: .2rem;
     background-color: #FE4B22;
     border-radius: 1rem;
-    margin: 0 auto;
-
+    margin: 0 auto 4rem auto;
+ 
     &::after{
         content: '';
         display: block;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1rem;
+        height: 1rem;
         position: absolute;
         left: var(--progress);
-        transform: translateY(-.5rem);
         background-color: #A11282;
         border-radius: 50%;
         cursor: pointer;
@@ -95,20 +97,26 @@ Error generating stack: `+a.message+`
       &::before{
         content: '';
         display: block;
-        width: calc(var(--progress) + 0.075rem);
+        width: calc(var(--progress) + 0.75rem);
         height: inherit;
         position: absolute;
         left: 0;
         background-color: #007E95;
+        border-radius: 1rem;
     }
 
 `,Wd=function(i){const s=document.querySelector("#bar"),o=s.getBoundingClientRect(),v=window.getComputedStyle(s,"::after").getPropertyValue("width"),E=i.clientX-o.left;return(Math.min(Math.max(E/o.width,0),1)-parseInt(v)/o.width/2)*100};function h1(){const[i,s]=xe.useState(0),[o,r]=xe.useState(!1),v=E=>{r(!0),s(Wd(E))};return xe.useEffect(()=>{const E=j=>{r(!1)},U=j=>{o&&s(Wd(j))};return window.addEventListener("mousemove",U),window.addEventListener("mouseup",E),()=>{window.removeEventListener("mouseup",E),window.removeEventListener("mousemove",U)}},[o]),Mt.jsx(Mt.Fragment,{children:Mt.jsx(y1,{id:"bar",$positionBtn:i,onMouseDown:v})})}const m1=ca.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: end;
     width: 20rem;
+    height: 30rem;
     margin: 0 auto;
-    background-color: #c6b5ee;
+    background-color: rgba(31, 30, 30, 0.8);
+    
+    border-radius: .5rem;
+    padding: 0 1.5rem;
 `,v1=ca.div`
     
     display: flex;
